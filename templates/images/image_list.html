@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
     {% include "upload.html" %}
+    <ul>
     {% for image in object_list %}
-    <a href="{{MEDIA_URL}}{{image.image.name}}">{{image.get_filename}}</a>
-    ({{image.image.size|filesizeformat}},
-    {{image.image.width}}x{{image.image.height}},
-    {{image.date|date:"d.M.Y H:m"}})
-{% endfor %}
+        <li><a href="{{MEDIA_URL}}{{image.image.name}}">{{image.get_filename}}</a>
+        ({{image.image.size|filesizeformat}},
+        {{image.image.width}}x{{image.image.height}},
+        {{image.date|date:"d.M.Y H:i"}})</li>
+    {% endfor %}
+    </ul>
 {% endblock %}

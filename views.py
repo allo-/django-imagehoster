@@ -23,3 +23,6 @@ class file_list(ListView):
         context = super(file_list, self).get_context_data(**kwargs)
         context['form'] = ImageUploadForm()
         return context
+
+    def get_queryset(self):
+        return self.model.objects.order_by("-date")
