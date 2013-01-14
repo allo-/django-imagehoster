@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import pre_delete
+from django.dispatch import receiver
 import settings
 
 assert hasattr(settings, "UPLOAD_DIR"), "you need to set UPLOAD_DIR (relative to MEDIA_URL) in settings"
@@ -10,3 +12,7 @@ class Image(models.Model):
 
     def get_filename(self):
         return str(self.image.name).split("/")[-1]
+
+@receiver(pre_delete, sender=Image)
+def image_deleted(sender, instance, **kwargs):
+    instance.image.delete()
