@@ -2,11 +2,11 @@
 <form action="{% url 'imagehoster.images.views.upload' %}" method="POST" enctype="multipart/form-data">
 <table>
 {{form}}
-{% csrf_token %}
 <tr>
 <td colspan="2">
 <input type="submit" value="Upload!" />
 </td>
 </tr>
 </table>
+{% csrf_token %}
 </form>
