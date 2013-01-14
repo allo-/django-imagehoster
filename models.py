@@ -9,6 +9,7 @@ assert len(settings.UPLOAD_DIR) and settings.UPLOAD_DIR[-1] == "/", "UPLOAD_DIR 
 class Image(models.Model):
     date=models.DateTimeField(auto_now_add=True)
     image=models.ImageField(upload_to=settings.UPLOAD_DIR)
+    private=models.BooleanField(default=False)
 
     def get_filename(self):
         return str(self.image.name).split("/")[-1]

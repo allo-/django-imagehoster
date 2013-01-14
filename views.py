@@ -25,4 +25,4 @@ class file_list(ListView):
         return context
 
     def get_queryset(self):
-        return self.model.objects.order_by("-date")
+        return self.model.objects.filter(private=False).order_by("-date")
