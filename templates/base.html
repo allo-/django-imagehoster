@@ -3,6 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <style>
+        body {
+            background-color: #E0E0E0;
+        }
+        ul {
+            padding: 0;
+            float: left;
+            clear: both;
+        }
+        li {
+            list-style: none;
+            border: thin solid darkgrey;
+            margin: 3px 0;
+            padding: 3px 5px;
+        }
+        li:nth-child(even) {
+            background-color: #D0E0E0;
+        }
+        li:nth-child(odd) {
+            background-color: #E0E0D0;
+        }
+        form {
+            border: thin solid darkgrey;
+            float: left;
+            clear: both;
+            padding: 2ex;
+            background-color: #D0D0D0;
+        }
+    </style>
 </head>
 <body>
 {% block content %}
